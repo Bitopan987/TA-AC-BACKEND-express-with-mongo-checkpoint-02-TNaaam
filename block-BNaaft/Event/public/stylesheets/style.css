@@ -1,0 +1,96 @@
+*,
+::before,
+::after {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+body a {
+  text-decoration: none;
+}
+
+body img {
+  width: 100%;
+  border-radius: 6px;
+}
+
+body .container {
+  max-width: 70rem;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+body header {
+  background-color: crimson;
+}
+
+body .header {
+  padding: 2rem 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+body .header a {
+  color: aliceblue;
+}
+
+body .event_header {
+  padding: 2rem 0 3rem 0;
+  text-align: center;
+  font-size: 3rem;
+  color: crimson;
+}
+
+body .img_div {
+  max-width: 40rem;
+  margin: 0 auto;
+}
+
+body .img_div p {
+  padding: 2rem 0;
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: grey;
+  text-align: center;
+}
+
+body .footer {
+  padding: 1rem 0 3rem 0;
+  text-align: center;
+}
+
+body .footer h2 {
+  padding: 1rem 0;
+}
+
+.btn {
+  display: inline-block;
+  border: none;
+  outline: none;
+  padding: 0.7rem 1.2rem;
+  border-radius: 7px;
+}
+
+.btn_primary {
+  background-color: green;
+  color: aliceblue;
+}
+
+.btn_sec {
+  background-color: crimson;
+  color: aliceblue;
+}
+/*# sourceMappingURL=style.css.map */
