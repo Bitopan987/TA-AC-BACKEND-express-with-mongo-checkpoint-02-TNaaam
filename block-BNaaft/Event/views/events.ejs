@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,300;1,400;1,500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <div class="header">
+          <a href="/">
+            <h2 class="logo">EVENT MANAGEMENT</h2>
+          </a>
+          <div>
+            <a class="btn btn_primary primary" href="/">Home</a>
+            <a class="btn btn_primary" href="/events/new">Create new Event</a>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main class="main_sec">
+      <aside>
+        <div class="search">
+          <h2>Search By :</h2>
+          <a href="">
+            <button class="btn btn_sec" type="reset">Reset</button>
+          </a>
+        </div>
+        <section class="category">
+          <h2>Categories</h2>
+          <div class="tags">
+            <a class="btn btn_ter" href="#">cricket</a>
+            <a class="btn btn_ter" href="#">cricket</a>
+            <a class="btn btn_ter" href="#">cricket</a>
+            <a class="btn btn_ter" href="#">cricket</a>
+            <a class="btn btn_ter" href="#">cricket</a>
+            <a class="btn btn_ter" href="#">cricket</a>
+          </div>
+        </section>
+        <section class="location">
+          <h2>Locations</h2>
+          <div class="tags">
+            <a class="btn btn_ter" href="#">delhi</a>
+            <a class="btn btn_ter" href="#">delhi</a>
+            <a class="btn btn_ter" href="#">delhi</a>
+            <a class="btn btn_ter" href="#">delhi</a>
+            <a class="btn btn_ter" href="#">delhi</a>
+            <a class="btn btn_ter" href="#">delhi</a>
+          </div>
+        </section>
+      </aside>
+      <section class="list_sec">
+        <h2>List Of Events</h2>
+        <hr class="line" />
+        <% events.forEach(event => { %>
+        <section class="list">
+          <a href="/events/<%= event._id %>">
+            <h2 class="list_title"><%= event.title %></h2>
+          </a>
+        </section>
+        <% }) %>
+      </section>
+    </main>
+  </body>
+</html>
