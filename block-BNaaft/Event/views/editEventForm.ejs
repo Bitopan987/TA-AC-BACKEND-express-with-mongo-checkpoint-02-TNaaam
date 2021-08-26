@@ -27,14 +27,15 @@
         </div>
       </div>
     </header>
-    <div class="form form_event">
-      <h2>Add Event</h2>
-      <form action="/events" method="POST">
+    <div class="form">
+      <h2>Update Event</h2>
+      <form action="/events/<%= event.id %>" method="POST">
         <input
           class="input_handle"
           type="text"
           name="title"
           placeholder="Add title"
+          value="<%= event.title %>"
         />
         <textarea
           class="input_handle"
@@ -42,44 +43,45 @@
           rows="3"
           name="summary"
           placeholder="Add summary"
-        ></textarea>
+        >
+<%= event.summary %></textarea
+        >
         <input
           class="input_handle"
           type="text"
           name="host"
           placeholder="Add host"
+          value="<%= event.host %>"
         />
         <input
           class="input_handle"
           type="text"
           name="category"
           placeholder="Add Category"
+          value="<%= event.category %>"
         />
         <input
           class="input_handle"
           type="date"
           name="start_date"
           placeholder="Add start_date"
+          value="<%= event.start_date %>"
         />
         <input
           class="input_handle"
           type="date"
           name="end_date"
           placeholder="Add end_date"
+          value="<%= event.end_date %>"
         />
         <input
           class="input_handle"
           type="text"
           name="location"
           placeholder="Add location"
+          value="<%= event.location %>"
         />
-        <input
-          class="input_handle"
-          type="number"
-          name="likes"
-          placeholder="Add Likes"
-        />
-        <button type="submit" class="input_handle btn_sub">Add Event</button>
+        <button type="submit" class="input_handle btn_sub">Update Event</button>
       </form>
     </div>
   </body>

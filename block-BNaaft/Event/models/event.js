@@ -9,6 +9,8 @@ var eventSchema = new Schema(
     start_date: Date,
     end_date: Date,
     location: String,
+    likes: { type: Number, default: 0 },
+    remarks: [{ type: Schema.Types.ObjectId, ref: 'Remark' }],
   },
   { timestamps: true }
 );

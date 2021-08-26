@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,300;1,400;1,500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <div class="header">
+          <a href="/">
+            <h2 class="logo">EVENT MANAGEMENT</h2>
+          </a>
+          <div>
+            <a class="btn btn_primary primary" href="/">Home</a>
+            <a class="btn btn_primary" href="/events">Back</a>
+          </div>
+        </div>
+      </div>
+    </header>
+    <div class="container">
+      <section class="book">
+        <h1><strong>Title</strong>: <%= event.title %></h1>
+        <p><strong>Summary</strong>: <%= event.summary %></p>
+        <p><strong>Host</strong>: <%= event.host %></p>
+        <% event.category.forEach(t => { %>
+        <p><strong>Category</strong>: <%= t %></p>
+        <% }) %>
+        <p><strong>Starts From</strong>: <%= event.start_date %></p>
+        <p><strong>Ends On</strong>: <%= event.end_date %></p>
+        <p><strong>Location</strong>: <%= event.location %></p>
+        <p><strong>Likes</strong>: <%= event.likes %></p>
+      </section>
+
+      <div class="center">
+        <div class="likes">
+          <a href="/events/<%= event._id %>/likes">
+            <img class="btn_like" src="/images/like.png" alt="" />
+          </a>
+          <a href="/events/<%= event._id %>/dislikes">
+            <img class="btn_dislike" src="/images/two.png" alt="" />
+          </a>
+        </div>
+        <a href="/events/<%= event._id %>/edit">
+          <button class="btn btn_edit primary">Edit</button>
+        </a>
+        <a href="/events/<%= event._id %>/delete">
+          <button class="btn btn_delete">Delete</button>
+        </a>
+        <hr />
+      </div>
+
+      <div class="form comment">
+        <form action="/events/<%= event._id %>/remarks" method="POST">
+          <textarea
+            class="input_handle"
+            type="text"
+            rows="4"
+            name="text"
+            placeholder="Add Remarks"
+          ></textarea>
+          <input
+            class="input_handle"
+            type="text"
+            name="author"
+            placeholder="Author"
+          />
+          <button type="submit" class="input_handle btn_sub">Add Remark</button>
+        </form>
+      </div>
+
+      <div class="content">
+        <h2 class="text">Remarks</h2>
+        <hr />
+        <% event.remarks.forEach(remark => { %>
+
+        <div class="content_item">
+          <p><%= remark.text %></p>
+          <p><%= remark.author %></p>
+          <a href="/remarks/<%= remark._id %>/edit">
+            <button class="btn_edit btn primary">Edit</button>
+          </a>
+          <a href="/remarks/<%= remark._id %>/delete">
+            <button class="btn_delete btn primary">Delete</button>
+          </a>
+        </div>
+        <% }) %>
+      </div>
+    </div>
+  </body>
+</html>

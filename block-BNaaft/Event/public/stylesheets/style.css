@@ -147,7 +147,7 @@ body .form {
   background-color: #f78166;
   margin: 0 auto;
   max-width: 30rem;
-  padding: 2rem;
+  padding: 1.5rem 2rem 1rem 2rem;
   margin-top: 2rem;
   border-radius: 7px;
 }
@@ -164,6 +164,109 @@ body .form .input_handle {
   border-radius: 7px;
   border: none;
   outline: none;
+}
+
+body .form_event {
+  margin-bottom: 3rem;
+  margin-top: 3rem;
+}
+
+body .list p {
+  text-align: center;
+  padding: 0.5rem 0;
+  font-size: 1.4rem;
+  color: #58a6ff;
+  border-bottom: 1px solid #575151;
+}
+
+body .book {
+  text-align: center;
+  max-width: 40rem;
+  margin: 0 auto;
+}
+
+body .book h1 {
+  font-size: 1.7rem;
+  color: #58a6ff;
+  padding: 1.2rem 0 1rem 0;
+}
+
+body .book p {
+  font-size: 1.2rem;
+  color: #c9d1d9;
+  padding: 0.7rem 0;
+  border: 1px solid #58a6ff;
+  margin-bottom: 0.8rem;
+  border-radius: 7px;
+}
+
+body .center {
+  text-align: center;
+  padding-top: 2rem;
+  padding-bottom: 1rem;
+}
+
+body .center hr {
+  border: none;
+  border-top: 1px solid #575151;
+  margin-top: 2rem;
+}
+
+body .btn_like {
+  width: 2.8rem;
+  margin-right: 1.5rem;
+}
+
+body .btn_dislike {
+  width: 2.4rem;
+  height: 2.4rem;
+}
+
+body .likes {
+  padding-bottom: 1rem;
+}
+
+body .btn_sub {
+  background-color: #238636 !important;
+  color: #c9d1d9;
+}
+
+body .comment {
+  margin-bottom: 3rem;
+}
+
+body .content {
+  margin: 2rem;
+  max-width: 30rem;
+  margin: 0 auto;
+}
+
+body .content .text {
+  color: #58a6ff;
+  padding-bottom: 0.5rem;
+}
+
+body .content hr {
+  border: none;
+  border-top: 1px solid #58a6ff;
+}
+
+body .content_item {
+  margin: 0.5rem 0;
+  border: 1px solid #58a6ff;
+  padding: 1rem;
+  border-radius: 7px;
+  color: #c9d1d9;
+  text-align: center;
+}
+
+body .content_item p {
+  font-size: 1.3rem;
+  padding: 0.2rem 0;
+}
+
+body .content_item button {
+  margin-top: 0.7rem;
 }
 
 .btn {
@@ -198,8 +301,13 @@ body .form .input_handle {
   margin: 0.3rem;
 }
 
-.btn_sub {
-  background-color: #238636;
-  color: #c9d1d9;
+.btn_edit {
+  color: #8957e5 !important;
+  border: 1px solid #8957e5;
+}
+
+.btn_delete {
+  background-color: #8957e5;
+  color: aliceblue !important;
 }
 /*# sourceMappingURL=style.css.map */
