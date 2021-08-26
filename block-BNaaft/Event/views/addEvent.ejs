@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,300;1,400;1,500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <div class="header">
+          <a href="/">
+            <h2 class="logo">EVENT MANAGEMENT</h2>
+          </a>
+          <div>
+            <a class="btn btn_primary primary" href="/">Home</a>
+            <a class="btn btn_primary" href="/events">Back</a>
+          </div>
+        </div>
+      </div>
+    </header>
+    <div class="form">
+      <h2>Add Event</h2>
+      <form action="/events" method="POST">
+        <input
+          class="input_handle"
+          type="text"
+          name="title"
+          placeholder="Add title"
+        />
+        <textarea
+          class="input_handle"
+          type="text"
+          rows="3"
+          name="summary"
+          placeholder="Add summary"
+        ></textarea>
+        <input
+          class="input_handle"
+          type="text"
+          name="host"
+          placeholder="Add host"
+        />
+        <input
+          class="input_handle"
+          type="text"
+          name="category"
+          placeholder="Add Category"
+        />
+        <input
+          class="input_handle"
+          type="date"
+          name="start_date"
+          placeholder="Add start_date"
+        />
+        <input
+          class="input_handle"
+          type="date"
+          name="end_date"
+          placeholder="Add end_date"
+        />
+        <input
+          class="input_handle"
+          type="text"
+          name="location"
+          placeholder="Add location"
+        />
+        <button type="submit" class="input_handle btn_sub">Add Event</button>
+      </form>
+    </div>
+  </body>
+</html>
