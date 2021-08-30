@@ -1,0 +1,286 @@
+$primary: #0d1117;
+$secondary: #58a6ff;
+$tertiary: #282c31;
+$pure: #c9d1d9;
+$text: #238636;
+$danger: #f78166;
+$font-family: 'Roboto', sans-serif;
+$dark: #575151;
+
+*,
+::before,
+::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: $font-family;
+  background-color: $primary;
+  padding-bottom: 3rem;
+  a {
+    text-decoration: none;
+  }
+  img {
+    width: 100%;
+    border-radius: 6px;
+  }
+  .container {
+    max-width: 70rem;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+  header {
+    background-color: $tertiary;
+  }
+  .header {
+    padding: 1.5rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .logo {
+      color: $pure;
+    }
+    h2 {
+      font-weight: 600;
+    }
+  }
+  .event_header {
+    padding: 2rem 0 3rem 0;
+    text-align: center;
+    font-size: 2.5rem;
+    color: $secondary;
+  }
+  .img_div {
+    max-width: 35rem;
+    margin: 0 auto;
+    p {
+      padding: 2rem 0;
+      font-size: 1.2rem;
+      font-weight: 300;
+      color: $secondary;
+      text-align: center;
+      border-bottom: 1px solid $dark;
+    }
+  }
+  .footer {
+    padding: 1rem 0 3rem 0;
+    text-align: center;
+    h2 {
+      padding: 1rem 0;
+      color: $pure;
+    }
+  }
+  .primary {
+    margin-right: 1rem;
+  }
+  .main_sec {
+    display: flex;
+    aside {
+      height: 85vh;
+      padding: 1rem 2rem;
+      width: 30%;
+      color: $pure;
+      h2 {
+        padding: 0.7rem 0;
+        font-size: 1.3rem;
+      }
+      .search {
+        border-bottom: 1px solid $dark;
+        padding-bottom: 1.5rem;
+        text-align: center;
+      }
+      .category {
+        border-bottom: 1px solid $dark;
+        padding-bottom: 1.5rem;
+      }
+      .tags {
+        display: flex;
+        flex-wrap: wrap;
+      }
+    }
+    .list_sec {
+      width: 70%;
+      padding: 0 2rem 0 0;
+      h2 {
+        color: $pure;
+        text-align: center;
+        margin: 2rem 0 1rem 0;
+        border: 1px solid $dark;
+        border-radius: 7px;
+        padding: 0.7rem 0;
+      }
+      .line {
+        border: none;
+        border-top: 1px solid $dark;
+      }
+    }
+  }
+  .form {
+    background-color: $danger;
+    margin: 0 auto;
+    max-width: 30rem;
+    padding: 1.5rem 2rem 1rem 2rem;
+    margin-top: 2rem;
+    border-radius: 7px;
+    h2 {
+      text-align: center;
+    }
+    .input_handle {
+      display: block;
+      width: 100%;
+      margin: 0.7rem 0;
+      padding: 0.5rem;
+      border-radius: 7px;
+      border: none;
+      outline: none;
+    }
+  }
+  .form_event {
+    margin-bottom: 3rem;
+    margin-top: 3rem;
+  }
+  .list {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 30rem;
+    margin: 0 auto;
+    background-color: $pure;
+    padding: 0.5rem 1rem;
+    border-radius: 7px;
+    margin-top: 1rem;
+    p {
+      padding: 0.5rem 0;
+      font-size: 1.4rem;
+      color: #8957e5;
+    }
+    .btn {
+      background-color: $text;
+      color: $pure;
+    }
+  }
+  .book {
+    text-align: center;
+    max-width: 40rem;
+    margin: 0 auto;
+    h1 {
+      font-size: 1.7rem;
+      color: $secondary;
+      padding: 1.2rem 0 1rem 0;
+    }
+    p {
+      font-size: 1.2rem;
+      color: $pure;
+      padding: 0.7rem 1rem;
+      border: 1px solid $secondary;
+      margin-bottom: 0.8rem;
+      border-radius: 7px;
+      text-align: left;
+    }
+  }
+  .center {
+    text-align: center;
+    padding-top: 2rem;
+    padding-bottom: 1rem;
+    hr {
+      border: none;
+      border-top: 1px solid $dark;
+      margin-top: 2rem;
+    }
+  }
+  .btn_like {
+    width: 2.8rem;
+    margin-right: 1.5rem;
+  }
+  .btn_dislike {
+    width: 2.4rem;
+    height: 2.4rem;
+  }
+  .likes {
+    padding-bottom: 0.4rem;
+  }
+  .btn_sub {
+    background-color: $text !important;
+    color: $pure;
+  }
+  .comment {
+    margin-bottom: 3rem;
+  }
+  .content {
+    margin: 2rem;
+    max-width: 30rem;
+    margin: 0 auto;
+    .text {
+      color: $secondary;
+      padding-bottom: 0.5rem;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid $secondary;
+    }
+    &_item {
+      margin: 0.5rem 0;
+      border: 1px solid $secondary;
+      padding: 1rem;
+      border-radius: 7px;
+      color: $pure;
+      text-align: center;
+      p {
+        font-size: 1.3rem;
+        padding: 0.2rem 0;
+      }
+      button {
+        margin-top: 0.7rem;
+      }
+    }
+  }
+  .text-center {
+    color: $pure;
+    margin: 0 auto;
+    max-width: 30rem;
+    text-align: center;
+    padding: 2rem 0;
+    h4 {
+      padding: 0.5rem 0;
+    }
+  }
+}
+
+.btn {
+  display: inline-block;
+  border: none;
+  outline: none;
+  font-size: 1.1rem;
+  padding: 0.6rem 1.2rem;
+  border-radius: 7px;
+  &_primary {
+    background-color: green;
+    color: $pure !important;
+  }
+  &_sec {
+    background-color: $tertiary;
+    color: $pure;
+    border: 1px solid $dark;
+    :hover {
+      background-color: red;
+      border: 1px solid white;
+    }
+  }
+  &_ter {
+    border: 1px solid #8957e5;
+    color: #8957e5;
+    padding: 0.4rem 0.9rem;
+    margin: 0.3rem;
+  }
+  &_edit {
+    color: #8957e5 !important;
+    border: 1px solid #8957e5;
+  }
+  &_delete {
+    background-color: #8957e5;
+    color: aliceblue !important;
+  }
+}
