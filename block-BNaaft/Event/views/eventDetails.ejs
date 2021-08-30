@@ -85,7 +85,16 @@
 
         <div class="content_item">
           <p><%= remark.text %></p>
-          <p><%= remark.author %></p>
+          <p>By: <%= remark.author %></p>
+          <p>Likes: <%= remark.likes %></p>
+          <div class="likes like1">
+            <a href="/remarks/<%= remark._id %>/likes/inc">
+              <img class="btn_like" src="/images/like.png" alt="" />
+            </a>
+            <a href="/remarks/<%= remark._id %>/likes/dec">
+              <img class="btn_dislike" src="/images/two.png" alt="" />
+            </a>
+          </div>
           <a href="/remarks/<%= remark._id %>/edit">
             <button class="btn_edit btn primary">Edit</button>
           </a>

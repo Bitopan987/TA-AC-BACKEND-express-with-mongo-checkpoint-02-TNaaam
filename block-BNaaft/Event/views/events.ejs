@@ -31,43 +31,59 @@
       <aside>
         <div class="search">
           <h2>Search By :</h2>
-          <a href="">
+          <a href="/events">
             <button class="btn btn_sec" type="reset">Reset</button>
           </a>
         </div>
         <section class="category">
           <h2>Categories</h2>
           <div class="tags">
-            <a class="btn btn_ter" href="#">cricket</a>
-            <a class="btn btn_ter" href="#">cricket</a>
-            <a class="btn btn_ter" href="#">cricket</a>
-            <a class="btn btn_ter" href="#">cricket</a>
-            <a class="btn btn_ter" href="#">cricket</a>
-            <a class="btn btn_ter" href="#">cricket</a>
+            <% arr.forEach(tag=>{ %>
+            <a href="/events/sort/tags?name=<%= tag  %> " class="btn btn_ter"
+              ><%= tag %></a
+            >
+            <% }) %>
           </div>
         </section>
         <section class="location">
           <h2>Locations</h2>
           <div class="tags">
-            <a class="btn btn_ter" href="#">delhi</a>
-            <a class="btn btn_ter" href="#">delhi</a>
-            <a class="btn btn_ter" href="#">delhi</a>
-            <a class="btn btn_ter" href="#">delhi</a>
-            <a class="btn btn_ter" href="#">delhi</a>
-            <a class="btn btn_ter" href="#">delhi</a>
+            <% arrLocations.forEach(tag=>{ %>
+            <a
+              href="/events/sort/location?name=<%= tag  %> "
+              class="btn btn_ter"
+              ><%= tag %></a
+            >
+            <% }) %>
+          </div>
+        </section>
+        <section class="date">
+          <h2>By Date</h2>
+          <div class="tags">
+            <a href="/events/sort/date/acc" class="btn btn_ter">Ascending </a>
+            <a href="/events/sort/date/dec" class="btn btn_ter">Descending </a>
           </div>
         </section>
       </aside>
       <section class="list_sec">
         <h2>List Of Events</h2>
         <hr class="line" />
-        <% events.forEach(event => { %>
+        <% if(events){ %> <% events.forEach(ele=>{ %>
         <section class="list">
-          <a href="/events/<%= event._id %>">
-            <p class="list_title"><%= event.title %></p>
+          <a href="">
+            <p class="list_title"><%= ele.title %></p>
           </a>
+          <div>
+            <a href="/events/<%= ele._id %>" class="btn btn-primary">Details</a>
+          </div>
         </section>
-        <% }) %>
+        <% }) %> <% } %> <% if(events.length===0){ %>
+        <div class="text-center">
+          <h3 class="mb-1">Currently no event found</h3>
+          <h4 class="mb-1">Create new</h4>
+          <a class="btn btn_primary" href="/events/new">Create Event</a>
+        </div>
+        <% } %>
       </section>
     </main>
   </body>

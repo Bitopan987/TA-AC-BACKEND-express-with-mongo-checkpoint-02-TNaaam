@@ -10,6 +10,7 @@
 body {
   font-family: "Roboto", sans-serif;
   background-color: #0d1117;
+  padding-bottom: 3rem;
 }
 
 body a {
@@ -95,7 +96,7 @@ body .main_sec {
 
 body .main_sec aside {
   height: 85vh;
-  padding: 2rem;
+  padding: 1rem 2rem;
   width: 30%;
   color: #c9d1d9;
 }
@@ -132,7 +133,7 @@ body .main_sec .list_sec {
 body .main_sec .list_sec h2 {
   color: #c9d1d9;
   text-align: center;
-  margin: 3rem 0 1rem 0;
+  margin: 2rem 0 1rem 0;
   border: 1px solid #575151;
   border-radius: 7px;
   padding: 0.7rem 0;
@@ -171,12 +172,33 @@ body .form_event {
   margin-top: 3rem;
 }
 
+body .list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  max-width: 30rem;
+  margin: 0 auto;
+  background-color: #c9d1d9;
+  padding: 0.5rem 1rem;
+  border-radius: 7px;
+  margin-top: 1rem;
+}
+
 body .list p {
-  text-align: center;
   padding: 0.5rem 0;
   font-size: 1.4rem;
-  color: #58a6ff;
-  border-bottom: 1px solid #575151;
+  color: #8957e5;
+}
+
+body .list .btn {
+  background-color: #238636;
+  color: #c9d1d9;
 }
 
 body .book {
@@ -194,10 +216,11 @@ body .book h1 {
 body .book p {
   font-size: 1.2rem;
   color: #c9d1d9;
-  padding: 0.7rem 0;
+  padding: 0.7rem 1rem;
   border: 1px solid #58a6ff;
   margin-bottom: 0.8rem;
   border-radius: 7px;
+  text-align: left;
 }
 
 body .center {
@@ -223,7 +246,7 @@ body .btn_dislike {
 }
 
 body .likes {
-  padding-bottom: 1rem;
+  padding-bottom: 0.4rem;
 }
 
 body .btn_sub {
@@ -267,6 +290,18 @@ body .content_item p {
 
 body .content_item button {
   margin-top: 0.7rem;
+}
+
+body .text-center {
+  color: #c9d1d9;
+  margin: 0 auto;
+  max-width: 30rem;
+  text-align: center;
+  padding: 2rem 0;
+}
+
+body .text-center h4 {
+  padding: 0.5rem 0;
 }
 
 .btn {
