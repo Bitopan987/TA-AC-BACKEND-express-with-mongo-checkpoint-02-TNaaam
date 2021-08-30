@@ -18,6 +18,7 @@ $dark: #575151;
 body {
   font-family: $font-family;
   background-color: $primary;
+  padding-bottom: 3rem;
   a {
     text-decoration: none;
   }
@@ -79,7 +80,7 @@ body {
     display: flex;
     aside {
       height: 85vh;
-      padding: 2rem;
+      padding: 1rem 2rem;
       width: 30%;
       color: $pure;
       h2 {
@@ -106,7 +107,7 @@ body {
       h2 {
         color: $pure;
         text-align: center;
-        margin: 3rem 0 1rem 0;
+        margin: 2rem 0 1rem 0;
         border: 1px solid $dark;
         border-radius: 7px;
         padding: 0.7rem 0;
@@ -142,12 +143,23 @@ body {
     margin-top: 3rem;
   }
   .list {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 30rem;
+    margin: 0 auto;
+    background-color: $pure;
+    padding: 0.5rem 1rem;
+    border-radius: 7px;
+    margin-top: 1rem;
     p {
-      text-align: center;
       padding: 0.5rem 0;
       font-size: 1.4rem;
-      color: $secondary;
-      border-bottom: 1px solid $dark;
+      color: #8957e5;
+    }
+    .btn {
+      background-color: $text;
+      color: $pure;
     }
   }
   .book {
@@ -162,10 +174,11 @@ body {
     p {
       font-size: 1.2rem;
       color: $pure;
-      padding: 0.7rem 0;
+      padding: 0.7rem 1rem;
       border: 1px solid $secondary;
       margin-bottom: 0.8rem;
       border-radius: 7px;
+      text-align: left;
     }
   }
   .center {
@@ -187,7 +200,7 @@ body {
     height: 2.4rem;
   }
   .likes {
-    padding-bottom: 1rem;
+    padding-bottom: 0.4rem;
   }
   .btn_sub {
     background-color: $text !important;
@@ -222,6 +235,16 @@ body {
       button {
         margin-top: 0.7rem;
       }
+    }
+  }
+  .text-center {
+    color: $pure;
+    margin: 0 auto;
+    max-width: 30rem;
+    text-align: center;
+    padding: 2rem 0;
+    h4 {
+      padding: 0.5rem 0;
     }
   }
 }

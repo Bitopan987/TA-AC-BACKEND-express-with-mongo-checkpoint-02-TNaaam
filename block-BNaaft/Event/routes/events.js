@@ -1,5 +1,8 @@
 var express = require('express');
 var router = express.Router();
+let _ = require('lodash');
+let url = require('url');
+let qs = require('querystring');
 var Event = require('../models/event');
 var Remark = require('../models/remark');
 
@@ -8,7 +11,22 @@ var Remark = require('../models/remark');
 router.get('/', function (req, res, next) {
   Event.find({}, (err, events) => {
     if (err) return next(err);
-    res.render('events', { events: events });
+    //arr for array of categories
+
+    let arr = events.map((ele) => {
+      return ele.category;
+    });
+    arr = _.flattenDeep(arr);
+    arr = _.uniq(arr);
+    // arrLocations for array of locations
+
+    let arrLocations = events.map((ele) => {
+      return ele.location.trim();
+    });
+    arrLocations = _.flattenDeep(arrLocations);
+    arrLocations = _.uniq(arrLocations);
+
+    res.render('events', { events, arr, arrLocations });
   });
 });
 
@@ -16,20 +34,19 @@ router.get('/new', function (req, res, next) {
   res.render('addEvent');
 });
 
-router.post('/', (req, res) => {
-  Event.create(req.body, (err, createdevent) => {
+router.post('/new', (req, res) => {
+  let data = req.body;
+  let arr = data.category.split(',').map((ele) => {
+    return ele.trim();
+  });
+  data.category = arr;
+  Event.create(data, (err, createdevent) => {
     if (err) return next(err);
     res.redirect('/events');
   });
 });
 
-// router.get('/:id', (req, res, next) => {
-//   var id = req.params.id;
-//   Event.findById(id, (err, event) => {
-//     if (err) return next(err);
-//     res.render('eventDetails', { event: event });
-//   });
-// });
+// event details
 
 router.get('/:id', (req, res, next) => {
   var id = req.params.id;
@@ -42,10 +59,12 @@ router.get('/:id', (req, res, next) => {
     });
 });
 
+// edit event
+
 router.get('/:id/edit', (req, res, next) => {
   var id = req.params.id;
+
   Event.findById(id, (err, event) => {
-    event.category = event.category.join(' ');
     if (err) return next(err);
     res.render('editEventForm', { event });
   });
@@ -53,8 +72,13 @@ router.get('/:id/edit', (req, res, next) => {
 
 router.post('/:id', (req, res) => {
   var id = req.params.id;
-  req.body.category = req.body.category.split(' ');
-  Event.findByIdAndUpdate(id, req.body, (err, updatedEvent) => {
+  let data = req.body;
+  let arr = data.category.split(',').map((ele) => {
+    return ele.trim();
+  });
+  data.category = arr;
+  // req.body.category = req.body.category.split(' ');
+  Event.findByIdAndUpdate(id, data, (err, updatedEvent) => {
     if (err) return next(err);
     res.redirect('/events/' + id);
   });
@@ -100,5 +124,166 @@ router.post('/:eventId/remarks', (req, res, next) => {
     );
   });
 });
+
+//Sorting By tags
+
+router.get('/sort/tags', (req, res, next) => {
+  console.log(req.query);
+  let parsedUrl = url.parse(req.url);
+  let queryObj = qs.parse(parsedUrl.query);
+  console.log(queryObj.name);
+
+  Event.find({ category: queryObj.name }, (err, events) => {
+    if (err) return next(err);
+    Event.find({}, (err, dummy) => {
+      if (err) return next(err);
+
+      //arr for array of categories
+
+      let arr = dummy.map((ele) => {
+        return ele.category;
+      });
+      arr = _.flattenDeep(arr);
+      arr = _.uniq(arr);
+
+      // arrLocations for array of locations
+
+      let arrLocations = dummy.map((ele) => {
+        return ele.location.trim();
+      });
+      arrLocations = _.flattenDeep(arrLocations);
+      arrLocations = _.uniq(arrLocations);
+
+      res.render('events', { events, arr, arrLocations });
+    });
+  });
+});
+
+//sorting by locations
+
+router.get('/sort/location', (req, res, next) => {
+  let parsedUrl = url.parse(req.url);
+  let queryObj = qs.parse(parsedUrl.query);
+  console.log(queryObj.name);
+
+  Event.find({ location: queryObj.name }, (err, events) => {
+    if (err) return next(err);
+    Event.find({}, (err, dummy) => {
+      if (err) return next(err);
+
+      //arr for array of categories
+
+      let arr = dummy.map((ele) => {
+        return ele.category;
+      });
+      arr = _.flattenDeep(arr);
+      arr = _.uniq(arr);
+
+      // arrLocations for array of locations
+
+      let arrLocations = dummy.map((ele) => {
+        return ele.location.trim();
+      });
+      arrLocations = _.flattenDeep(arrLocations);
+      arrLocations = _.uniq(arrLocations);
+
+      res.render('events', { events, arr, arrLocations });
+    });
+  });
+});
+
+router.get('/sort/date/:type', (req, res, next) => {
+  let type = req.params.type;
+
+  //for sorting in accending order
+  if (type === 'acc') {
+    Event.find({})
+      .sort({ start_date: 1 })
+      .exec((err, events) => {
+        if (err) return next(err);
+
+        Event.find({}, (err, dummy) => {
+          if (err) return next(err);
+
+          //arr for array of categories
+
+          let arr = dummy.map((ele) => {
+            return ele.category;
+          });
+          arr = _.flattenDeep(arr);
+          arr = _.uniq(arr);
+
+          // arrLocations for array of locations
+
+          let arrLocations = dummy.map((ele) => {
+            return ele.location.trim();
+          });
+          arrLocations = _.flattenDeep(arrLocations);
+          arrLocations = _.uniq(arrLocations);
+
+          res.render('events', { events, arr, arrLocations });
+        });
+      });
+  } else if (type === 'dec') {
+    //for sorting in secending order
+    Event.find({})
+      .sort({ start_date: -1 })
+      .exec((err, events) => {
+        if (err) return next(err);
+
+        Event.find({}, (err, dummy) => {
+          if (err) return next(err);
+
+          //arr for array of categories
+
+          let arr = dummy.map((ele) => {
+            return ele.category;
+          });
+          arr = _.flattenDeep(arr);
+          arr = _.uniq(arr);
+
+          // arrLocations for array of locations
+
+          let arrLocations = dummy.map((ele) => {
+            return ele.location.trim();
+          });
+          arrLocations = _.flattenDeep(arrLocations);
+          arrLocations = _.uniq(arrLocations);
+          res.render('events', { events, arr, arrLocations });
+        });
+      });
+  } else {
+    next();
+  }
+});
+
+// test
+
+// function handleDefaultData(category) {
+//   Event.find({ event_category: category }, (err, events) => {
+//     if (err) return next(err);
+//     Event.find({}, (err, dummy) => {
+//       if (err) return next(err);
+
+//       //arr for array of categories
+
+//       let arr = dummy.map((ele) => {
+//         return ele.event_category;
+//       });
+//       arr = _.flattenDeep(arr);
+//       arr = _.uniq(arr);
+
+//       // arrLocations for array of locations
+
+//       let arrLocations = dummy.map((ele) => {
+//         return ele.location.trim();
+//       });
+//       arrLocations = _.flattenDeep(arrLocations);
+//       arrLocations = _.uniq(arrLocations);
+
+//       res.render('eventList', { events, arr, arrLocations });
+//     });
+//   });
+// }
 
 module.exports = router;
